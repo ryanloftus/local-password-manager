@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run build && electron ./dist/electron.js",
-    "build": "webpack --config webpack.config.js",
+    "generateStyleSheet": "tailwindcss -i ./src/input.css -o ./dist/input.css",
+    "generateBundle": "webpack --config webpack.config.js",
+    "build": "npm run generateBundle && npm run generateStyleSheet",
     "clean": "del /S .\\dist\\*"
   },
   "repository": {
@@ -20,8 +22,12 @@
   },
   "homepage": "https://github.com/ryanloftus/local-password-manager#readme",
   "devDependencies": {
+    "css-loader": "^6.8.1",
+    "daisyui": "^3.7.6",
     "electron": "^26.2.1",
     "html-webpack-plugin": "^5.5.3",
+    "style-loader": "^3.3.3",
+    "tailwindcss": "^3.3.3",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
   },
