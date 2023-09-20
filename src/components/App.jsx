@@ -1,7 +1,8 @@
 import React from 'react';
+import { Access } from './Access.jsx';
 
 export const App = () => {
     return (
-        <button className="btn btn-primary">My button</button>
+        <Access />
     );
 };
