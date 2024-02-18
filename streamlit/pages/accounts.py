@@ -2,7 +2,9 @@ import streamlit as st
 import json
 import pyperclip
 
-with open("accounts.json") as f:
+import main
+
+with open(main.ACCOUNTS_FILE) as f:
     accounts_data = json.load(f)
 
 st.title("Accounts")
