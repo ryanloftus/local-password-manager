@@ -1,14 +1,11 @@
 import streamlit as st
-import json
 
-import main
+import storage
 
-with open(main.SSO_FILE) as f:
-    sso_data = json.load(f)
+sso_data = storage.get_file_contents(storage.SSO_FILE)
 
 def save_changes():
-    with open(main.SSO_FILE, "w") as f:
-        json.dump(sso_data, f)
+    storage.write_file_contents(storage.SSO_FILE, sso_data)
 
 def add_new_provider(provider_name):
     for sso in sso_data["sso"]:
